@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import greenapple.wanderer.R;
+//import greenapple.wanderer.R;
 
 
 public class AboutActivity extends ActionBarActivity {

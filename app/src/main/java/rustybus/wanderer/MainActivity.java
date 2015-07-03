@@ -3,9 +3,9 @@ package rustybus.wanderer;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import greenapple.wanderer.R;
+//import greenapple.wanderer.R;
 
 /*
     Adding a new link?
@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent webViewActivity=new Intent("greenapple.wikiventure.WebViewActivity");
+                Intent webViewActivity=new Intent("rustybus.wanderer.WebViewActivity");
                 startActivity(webViewActivity);
             }
         });
@@ -102,11 +102,11 @@ public class MainActivity extends ActionBarActivity {
         switch(id) {
             //Open Preference Screen
             case R.id.menu_settings:
-                startActivity(new Intent("greenapple.wikiventure.PrefsActivity"));
+                startActivity(new Intent("rustybus.wanderer.PrefsActivity"));
                 break;
 
             case R.id.about:
-                startActivity(new Intent("greenapple.wikiventure.AboutActivity"));
+                startActivity(new Intent("rustybus.wanderer.AboutActivity"));
                 break;
         }
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="greenapple.wikiventure.WebViewActivity">
+    tools:context="rustybus.wanderer.WebViewActivity">
 
     <include
         android:id="@+id/tool_bar"

@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 
 import java.util.Random;
 
-import greenapple.wanderer.R;
+//import greenapple.wanderer.R;
 
 
 public class WebViewActivity extends ActionBarActivity {

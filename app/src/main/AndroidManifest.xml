@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="greenapple.wikiventure" >
+    package="rustybus.wanderer" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="rustybus.wanderer.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -21,30 +21,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PrefsActivity"
+            android:name="rustybus.wanderer.PrefsActivity"
             android:label="@string/title_activity_prefs" >
             <intent-filter>
-                <action android:name="greenapple.wikiventure.PrefsActivity" />
+                <action android:name="rustybus.wanderer.PrefsActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".WebViewActivity"
+            android:name="rustybus.wanderer.WebViewActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_web_view" >
             <intent-filter>
-                <action android:name="greenapple.wikiventure.WebViewActivity" />
+                <action android:name="rustybus.wanderer.WebViewActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name="rustybus.wanderer.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="rustybus.wanderer.MainActivity" >
             <intent-filter>
-                <action android:name="greenapple.wikiventure.AboutActivity" />
+                <action android:name="rustybus.wanderer.AboutActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

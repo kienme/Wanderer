@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Web Wanderer</string>
+    <string name="app_name">Wanderer</string>
     <string name="start_button_text">START ADVENTURE</string>
     <string name="title_activity_web_view">WebViewActivity</string>
     <string name="title_activity_prefs">PrefsActivity</string>

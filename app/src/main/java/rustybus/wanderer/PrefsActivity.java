@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
-import greenapple.wanderer.R;
+//import greenapple.wanderer.R;
 
 
 public class PrefsActivity extends PreferenceActivity {
