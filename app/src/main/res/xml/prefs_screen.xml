@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Settings" >
+
+    <PreferenceCategory
+        android:title="View">
+
+        <MultiSelectListPreference
+            android:title="Pages"
+            android:key="Pages"
+            android:summary="Tap to select pages to view"
+            android:entries="@array/pages"
+            android:entryValues="@array/page_values"
+            android:defaultValue="@array/page_defaults"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Advanced">
+
+        <CheckBoxPreference
+            android:title="Javascript"
+            android:key="Javascript"
+            android:summary="Select if pages do not load properly\n\nWarning: Enabling Javascript may introduce XSS vulnerabilities"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

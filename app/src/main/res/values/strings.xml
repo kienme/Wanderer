@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Web Wanderer</string>
+    <string name="start_button_text">START ADVENTURE</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
+    <string name="title_activity_prefs">PrefsActivity</string>
+    <string name="action_settings">Settings</string>
+    
+    <string-array name="pages">
+        <item>Wikipedia</item>
+        <item>9gag</item>
+        <item>C&amp;H</item>
+        <item>Reddit</item>
+        <item>Wordpress</item>
+        <item>IMDb</item>
+        <item>Wikihow</item>
+    </string-array>
+
+    <string-array name="page_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="page_defaults">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="about_text1">Created by Ravikiran Iyer</string>
+    <string name="about_text2">Logo by Mathews Joseph</string>
+</resources>
