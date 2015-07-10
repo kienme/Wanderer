@@ -5,8 +5,8 @@
     <item android:state_pressed="false" >
         <shape android:shape="rectangle">
             <gradient
-                android:startColor="#f44336"
-                android:endColor="#f44336" />
+                android:startColor="@color/accentColor"
+                android:endColor="@color/accentColor" />
             <corners
                 android:topLeftRadius="@dimen/button_radius"
                 android:topRightRadius="@dimen/button_radius"

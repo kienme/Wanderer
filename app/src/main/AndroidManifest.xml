@@ -22,7 +22,8 @@
         </activity>
         <activity
             android:name="rustybus.wanderer.PrefsActivity"
-            android:label="@string/title_activity_prefs" >
+            android:label="@string/title_activity_prefs"
+            android:parentActivityName="rustybus.wanderer.MainActivity">
             <intent-filter>
                 <action android:name="rustybus.wanderer.PrefsActivity" />
 
@@ -32,12 +33,16 @@
         <activity
             android:name="rustybus.wanderer.WebViewActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_web_view" >
+            android:label="@string/title_activity_web_view"
+            android:parentActivityName="rustybus.wanderer.MainActivity">
             <intent-filter>
                 <action android:name="rustybus.wanderer.WebViewActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="rustybus.wanderer.MainActivity"/>
         </activity>
         <activity
             android:name="rustybus.wanderer.AboutActivity"

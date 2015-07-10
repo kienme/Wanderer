@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -49,11 +50,21 @@ public class WebViewActivity extends ActionBarActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        //Go back in history
+    }
+
     private void initialise() {
         toolbar=(Toolbar)findViewById(R.id.tool_bar);
-        toolbar.setTitleTextColor(Color.WHITE);
+        //toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("Google");
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressBar=(ProgressBar)findViewById(R.id.progressBar);
         progressBar.setMax(100);
@@ -190,6 +201,8 @@ public class WebViewActivity extends ActionBarActivity {
                 shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareMessage);
                 startActivity(Intent.createChooser(shareIntent, "Share link via"));
 
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
         }
 
         return super.onOptionsItemSelected(item);

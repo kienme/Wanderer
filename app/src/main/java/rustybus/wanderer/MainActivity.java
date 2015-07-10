@@ -57,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
 
         //Set toolbar with white text
         toolbar=(Toolbar)findViewById(R.id.tool_bar);
-        toolbar.setTitleTextColor(Color.WHITE);
+        //toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
 
         //Start WebActivity on click of the button

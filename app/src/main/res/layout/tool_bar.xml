@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingTop="0dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#3F51B5"
+    android:background="@color/primaryColor"
     android:id="@+id/app_bar"
+    app:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
     app:popupTheme="@style/Theme.AppCompat.Light">
 
 </android.support.v7.widget.Toolbar>
