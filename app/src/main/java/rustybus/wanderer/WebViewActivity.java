@@ -2,11 +2,13 @@ package rustybus.wanderer;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -28,6 +31,9 @@ public class WebViewActivity extends ActionBarActivity {
     WebView webView;
     ImageButton floatButton;
     String url="http://www.google.com";
+
+    ShareActionProvider shareActionProvider;
+
 
     Random random;
 
@@ -52,9 +58,17 @@ public class WebViewActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
 
         //Go back in history
+        if(webView.canGoBack()) {
+            webView.goBack();
+            toolbar.setTitle(getResources().getString(R.string.app_name));
+        }
+
+        else {
+            webView.clearHistory();
+            super.onBackPressed();
+        }
     }
 
     private void initialise() {
@@ -81,7 +95,6 @@ public class WebViewActivity extends ActionBarActivity {
 
         webView.setWebViewClient(new MyWebViewClient());
         webView.setWebChromeClient(new MyWebChromeClient());
-
     }
 
     private void setUrl(boolean reload) {
@@ -171,6 +184,9 @@ public class WebViewActivity extends ActionBarActivity {
         public void onProgressChanged(WebView view, int newProgress) {
             super.onProgressChanged(view, newProgress);
             progressBar.setProgress(newProgress);
+
+            if(shareActionProvider!=null)
+                shareActionProvider.setShareIntent(getShareIntent());
         }
     }
 
@@ -184,7 +200,11 @@ public class WebViewActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_web_view, menu);
-        return true;
+        MenuItem item=menu.findItem(R.id.share);
+        shareActionProvider= (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+        shareActionProvider.setShareIntent(getShareIntent());
+        //return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -192,19 +212,44 @@ public class WebViewActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         switch(id) {
-            case R.id.share:
+            /*case R.id.share:
+
+                //shareActionProvider.setShareIntent(getShareIntent());
+                Log.i("fast cars in the city", "SHARE BUTTON PRESSED!!!");
 
                 Intent shareIntent=new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Discovery!");
                 String shareMessage = "I found this on Web Wanderer: " + webView.getUrl();
                 shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareMessage);
-                startActivity(Intent.createChooser(shareIntent, "Share link via"));
+                //startActivity(Intent.createChooser(shareIntent, "Share link via"));
+
+                shareActionProvider.setShareIntent(shareIntent);
+
+                break;*/
 
             case android.R.id.home:
+
+                webView.clearHistory();
                 NavUtils.navigateUpFromSameTask(this);
+
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private Intent getShareIntent() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Discovery!");
+
+        String message;
+        if(webView.getUrl()!=null)
+            message = "I found this on Wanderer: " + webView.getUrl();
+        else
+            message = "Find more using Web Wanderer app";
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        return intent;
     }
 }

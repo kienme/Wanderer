@@ -22,8 +22,8 @@
         <CheckBoxPreference
             android:title="Javascript"
             android:key="Javascript"
-            android:summary="Select if pages do not load properly\n\nWarning: Enabling Javascript may introduce XSS vulnerabilities"
-            android:defaultValue="false"/>
+            android:summary="Keep checked to load all contents of page"
+            android:defaultValue="true"/>
 
     </PreferenceCategory>
 
