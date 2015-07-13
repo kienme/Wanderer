@@ -23,7 +23,7 @@
         android:id="@+id/progressBar"
         android:layout_below="@+id/tool_bar"
         android:layout_centerHorizontal="true"
-        style="?android:attr/progressBarStyleHorizontal"/>
+        style="?android:attr/progressBarStyleHorizontal" />
 
     <ImageButton
         android:layout_width="75dp"

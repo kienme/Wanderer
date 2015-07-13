@@ -15,7 +15,7 @@
         </shape>
     </item>
 
-    <item android:state_pressed="true" >
+    <!--<item android:state_pressed="true" >
         <shape android:shape="rectangle">
             <gradient
                 android:startColor="#d32f2f"
@@ -26,6 +26,5 @@
                 android:bottomLeftRadius="@dimen/button_radius"
                 android:bottomRightRadius="@dimen/button_radius"/>
         </shape>
-    </item>
-
+    </item>-->
 </selector>
