@@ -11,11 +11,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.janrone.lib.listener.ToolbarWebViewScrollListener;
+import com.janrone.lib.ui.ToolbarWebView;
 import com.software.shell.fab.FloatingActionButton;
 
 import java.util.Random;
@@ -27,7 +31,8 @@ public class WebViewActivity extends ActionBarActivity {
 
     Toolbar toolbar;
     ProgressBar progressBar;
-    WebView webView;
+    //WebView webView;
+    ToolbarWebView webView;
     //ImageButton floatButton;
     FloatingActionButton fab;
     String url="http://www.google.com";
@@ -93,7 +98,9 @@ public class WebViewActivity extends ActionBarActivity {
         //floatButton=(ImageButton)findViewById(R.id.fButton);
         fab=(FloatingActionButton)findViewById(R.id.fab);
 
-        webView=(WebView)findViewById(R.id.webView);
+        //webView=(WebView)findViewById(R.id.webView);
+        webView= (ToolbarWebView) findViewById(R.id.toolBarWebView);
+
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setSupportZoom(true);
 
@@ -102,6 +109,22 @@ public class WebViewActivity extends ActionBarActivity {
 
         webView.setWebViewClient(new MyWebViewClient());
         webView.setWebChromeClient(new MyWebChromeClient());
+
+        webView.setOnCustomScroolChangeListener(webView, new ToolbarWebViewScrollListener() {
+            @Override
+            public void onHide() {
+                fab.hide();
+                toolbar.animate().translationY(-toolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+                progressBar.animate().translationY(-toolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+            }
+
+            @Override
+            public void onShow() {
+                fab.show();
+                toolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+                progressBar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+            }
+        });
     }
 
     private void setUrl(boolean reload) {

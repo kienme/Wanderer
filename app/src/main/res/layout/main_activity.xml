@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         app:mrl_rippleOverlay="true"
         app:mrl_rippleColor="#000"
-        app:mrl_rippleAlpha="0.1"
+        app:mrl_rippleAlpha="0.2"
         app:mrl_rippleDelayClick="true"
         app:mrl_rippleHover="true">
         <Button
