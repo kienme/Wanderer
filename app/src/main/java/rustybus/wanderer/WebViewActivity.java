@@ -31,9 +31,7 @@ public class WebViewActivity extends ActionBarActivity {
 
     Toolbar toolbar;
     ProgressBar progressBar;
-    //WebView webView;
     ToolbarWebView webView;
-    //ImageButton floatButton;
     FloatingActionButton fab;
     String url="http://www.google.com";
 
@@ -48,20 +46,13 @@ public class WebViewActivity extends ActionBarActivity {
 
         random=new Random();
         initialise();
-        setUrl(false);
+        setUrl();
 
         webView.loadUrl(url);
-        /*floatButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setUrl(false);
-                webView.loadUrl(url);
-            }
-        });*/
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setUrl(false);
+                setUrl();
                 webView.loadUrl(url);
             }
         });
@@ -84,7 +75,6 @@ public class WebViewActivity extends ActionBarActivity {
 
     private void initialise() {
         toolbar=(Toolbar)findViewById(R.id.tool_bar);
-        //toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("Google");
         setSupportActionBar(toolbar);
 
@@ -95,10 +85,8 @@ public class WebViewActivity extends ActionBarActivity {
         progressBar.setMax(100);
         progressBar.setProgress(0);
 
-        //floatButton=(ImageButton)findViewById(R.id.fButton);
         fab=(FloatingActionButton)findViewById(R.id.fab);
 
-        //webView=(WebView)findViewById(R.id.webView);
         webView= (ToolbarWebView) findViewById(R.id.toolBarWebView);
 
         webView.getSettings().setBuiltInZoomControls(true);
@@ -128,63 +116,63 @@ public class WebViewActivity extends ActionBarActivity {
         });
     }
 
-    private void setUrl(boolean reload) {
+    private void setUrl(/*boolean reload*/) {
 
-        if(!reload) {
-            int size = MainActivity.pageList.size();
+        //if(!reload) {
+        int size = MainActivity.pageList.size();
 
-            if (size != 0) {
-                int randomNumber = random.nextInt(size);
+        if (size != 0) {
+            int randomNumber = random.nextInt(size);
 
-                switch (Integer.parseInt(MainActivity.pageList.get(randomNumber))) {
+            switch (Integer.parseInt(MainActivity.pageList.get(randomNumber))) {
 
-                    //Wikipedia
-                    case 0:
-                        url = "http://en.wikipedia.org/wiki/Special:Random";
-                        toolbar.setTitle("Wikipedia");
-                        break;
+                //Wikipedia
+                case 0:
+                    url = "http://en.wikipedia.org/wiki/Special:Random";
+                    toolbar.setTitle("Wikipedia");
+                    break;
 
-                    //9gag
-                    case 1:
-                        url = "http://9gag.com/random";
-                        toolbar.setTitle("9gag");
-                        break;
+                //9gag
+                case 1:
+                    url = "http://9gag.com/random";
+                    toolbar.setTitle("9gag");
+                    break;
 
-                    //Explosm
-                    case 2:
-                        url = "http://explosm.com/comics/random";
-                        toolbar.setTitle("Cyanide and Happiness");
-                        break;
+                //Explosm
+                case 2:
+                    url = "http://explosm.com/comics/random";
+                    toolbar.setTitle("Cyanide and Happiness");
+                    break;
 
-                    //Reddit
-                    case 3:
-                        url = "http://reddit.com/r/random/";
-                        toolbar.setTitle("Reddit");
-                        break;
+                //Reddit
+                case 3:
+                    url = "http://reddit.com/r/random/";
+                    toolbar.setTitle("Reddit");
+                    break;
 
-                    //Wordpress
-                    case 4:
-                        url = "https://en.blog.wordpress.com/next/";
-                        toolbar.setTitle("Wordpress");
-                        break;
+                //Wordpress
+                case 4:
+                    url = "https://en.blog.wordpress.com/next/";
+                    toolbar.setTitle("Wordpress");
+                    break;
 
-                    //IMDb
-                    case 5:
-                        url = "http://www.imdb.com/random/title";
-                        toolbar.setTitle("IMDb");
-                        break;
+                //IMDb
+                case 5:
+                    url = "http://www.imdb.com/random/title";
+                    toolbar.setTitle("IMDb");
+                    break;
 
-                    //Wikihow
-                    case 6:
-                        url = "http://wikihow.com/Special:Randomizer";
-                        toolbar.setTitle("Wikihow");
-                        break;
-                }
+                //Wikihow
+                case 6:
+                    url = "http://wikihow.com/Special:Randomizer";
+                    toolbar.setTitle("Wikihow");
+                    break;
             }
         }
+        /*}
 
         else
-            url=webView.getUrl();
+            url=webView.getUrl();*/
     }
 
     private class MyWebViewClient extends WebViewClient{
@@ -225,7 +213,8 @@ public class WebViewActivity extends ActionBarActivity {
     protected void onRestart() {
         super.onRestart();
 
-        setUrl(true);
+        //setUrl();
+        webView.reload();
     }
 
     @Override
@@ -234,7 +223,6 @@ public class WebViewActivity extends ActionBarActivity {
         MenuItem item=menu.findItem(R.id.share);
         shareActionProvider= (ShareActionProvider) MenuItemCompat.getActionProvider(item);
         shareActionProvider.setShareIntent(getShareIntent());
-        //return true;
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -243,27 +231,13 @@ public class WebViewActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         switch(id) {
-            /*case R.id.share:
-
-                //shareActionProvider.setShareIntent(getShareIntent());
-                Log.i("fast cars in the city", "SHARE BUTTON PRESSED!!!");
-
-                Intent shareIntent=new Intent(android.content.Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Discovery!");
-                String shareMessage = "I found this on Web Wanderer: " + webView.getUrl();
-                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareMessage);
-                //startActivity(Intent.createChooser(shareIntent, "Share link via"));
-
-                shareActionProvider.setShareIntent(shareIntent);
-
-                break;*/
+            case R.id.reload:
+                webView.reload();
+                break;
 
             case android.R.id.home:
-
                 webView.clearHistory();
                 NavUtils.navigateUpFromSameTask(this);
-
                 break;
         }
 

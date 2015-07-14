@@ -10,4 +10,8 @@
         app:showAsAction="ifRoom"
         app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
 
+    <item android:id="@+id/reload"
+        android:title="Reload"
+        app:showAsAction="never" />
+
 </menu>
