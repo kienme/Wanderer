@@ -102,6 +102,7 @@ public class WebViewActivity extends ActionBarActivity {
         webView= (ToolbarWebView) findViewById(R.id.toolBarWebView);
 
         webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(false);
         webView.getSettings().setSupportZoom(true);
 
         if(MainActivity.setJavascript)
