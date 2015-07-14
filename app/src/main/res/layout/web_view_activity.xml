@@ -1,8 +1,8 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="rustybus.wanderer.WebViewActivity">
 
     <include
@@ -25,7 +25,7 @@
         android:layout_centerHorizontal="true"
         style="?android:attr/progressBarStyleHorizontal" />
 
-    <ImageButton
+    <!--<ImageButton
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginRight="15dp"
@@ -35,6 +35,21 @@
         android:src="@drawable/fbutton_src"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"/>-->
+
+    <com.software.shell.fab.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/fab"
+        app:button_color="@color/accentColor"
+        app:button_colorPressed="@color/accentColorDark"
+        app:image="@drawable/fbutton_src"
+        app:shadowResponsiveEffect_enabled="true" />
 
 </RelativeLayout>

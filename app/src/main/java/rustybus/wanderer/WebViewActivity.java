@@ -14,8 +14,9 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
+
+import com.software.shell.fab.FloatingActionButton;
 
 import java.util.Random;
 
@@ -27,11 +28,11 @@ public class WebViewActivity extends ActionBarActivity {
     Toolbar toolbar;
     ProgressBar progressBar;
     WebView webView;
-    ImageButton floatButton;
+    //ImageButton floatButton;
+    FloatingActionButton fab;
     String url="http://www.google.com";
 
     ShareActionProvider shareActionProvider;
-
 
     Random random;
 
@@ -45,7 +46,14 @@ public class WebViewActivity extends ActionBarActivity {
         setUrl(false);
 
         webView.loadUrl(url);
-        floatButton.setOnClickListener(new View.OnClickListener() {
+        /*floatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setUrl(false);
+                webView.loadUrl(url);
+            }
+        });*/
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setUrl(false);
@@ -82,7 +90,8 @@ public class WebViewActivity extends ActionBarActivity {
         progressBar.setMax(100);
         progressBar.setProgress(0);
 
-        floatButton=(ImageButton)findViewById(R.id.fButton);
+        //floatButton=(ImageButton)findViewById(R.id.fButton);
+        fab=(FloatingActionButton)findViewById(R.id.fab);
 
         webView=(WebView)findViewById(R.id.webView);
         webView.getSettings().setBuiltInZoomControls(true);

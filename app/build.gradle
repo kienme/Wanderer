@@ -24,4 +24,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.balysv:material-ripple:1.0.2'
+    compile 'com.github.shell-software:fab:1.1.2'
 }
